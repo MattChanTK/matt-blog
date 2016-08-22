@@ -7,9 +7,9 @@ class HomePage(webapp2.RequestHandler):
         self.response.out.write("Welcome to Matthew's Blog!!")
 
 app = webapp2.WSGIApplication([
+    ('/', HomePage),
     ('/blog/new_post', blog.NewPost),
-    ('/blog/post/.*', blog.PostPage),
-    ('/blog.*', blog.BlogHome),
-    ('/.*', HomePage),
+    ('/blog/post/([0-9]+)', blog.PostPage),
+    ('/blog/?', blog.BlogHome),
 
 ], debug=True)

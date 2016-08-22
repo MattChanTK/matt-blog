@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Matthew's Blog</title>
-</head>
-<body>
-    <h1>Matthew's Blog</h1>
+{% extends "base.html" %}
+{% block title %}Matthew's Blog{% endblock %}
+
+{% block content %}
+
     <form method="post">
         <button type="submit" formmethod="post">Add new posts</button>
     </form>
-    <hr>
-    {% for post in posts %}
-        <div class="post">
-            <div class="post-subject">{{post.subject}}</div>
-            <pre class="post-content">{{post.content}}</pre>
-        </div>
+    {% for p in posts %}
+        {{ p.render() | safe }}
+        <br><br>
     {% endfor %}
 
-</body>
-</html>
+{% endblock %}

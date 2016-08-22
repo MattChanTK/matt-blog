@@ -1,0 +1,19 @@
+<div class="post">
+    <div class="post-heading">
+
+        <a href="/blog/post/{{p.key().id()}}" class="main-title">
+            <div class="post-title">
+                {{p.subject}}
+            </div>
+        </a>
+
+
+        <div class="post-date">
+            {{p.created.strftime("%Y-%m-%d")}}
+        </div>
+    </div>
+
+    <div class="post-content">
+        {{p._render_text | safe}}
+    </div>
+</div>

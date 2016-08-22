@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Matthew's Blog</title>
-</head>
-<body>
-    <h1>Matthew's Blog</h1>
-    <form method="post">
-        <button type="submit" formmethod="post">Home Page</button>
-    </form>
-    <hr>
-    <div class="post">
-        <div class="post-subject">{{post.subject}}</div>
-        <pre class="post-content">{{post.content}}</pre>
-    </div>
+{% extends "base.html" %}
+{% block title %}Matthew's Blog | {{post.subject}}{% endblock %}
 
-</body>
-</html>
+{% block content %}
+    {{post.render() | safe}}
+{% endblock %}
